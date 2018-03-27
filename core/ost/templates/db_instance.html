@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}:DB Instances{% endblock %}
+{% block content %}
+    <h2>List of instances</h2>
+    <div>
+        {% for rec in instance %}
+            {% if forloop.first %}
+                <table class="table table-striped">
+                <tr>
+                    <th>Server</th>
+                    <th>Name</th>
+                    <th>Connect string</th>
+                </tr>
+            {% endif %}
+        <tr>
+            <td>{{ rec.server }}</td>
+            <td>{{ rec.name }}</td>
+            <td>{{ rec.connect_string }}</td>
+        </tr>
+        {% if forloop.last %}
+            </table>
+        {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

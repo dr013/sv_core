@@ -1,0 +1,618 @@
+[
+{
+    "model": "com.i18n",
+    "pk": 1,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 1,
+        "text": "\u0422\u0438\u043f \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 2,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 2,
+        "text": "\u0421\u043e\u0431\u044b\u0442\u0438\u0435"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 3,
+    "fields": {
+        "lang": "LANGENG",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 2,
+        "text": "Event"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 4,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 3,
+        "text": "\u0418\u043d\u0446\u0438\u0434\u0435\u043d\u0442"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 5,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "DESCRIPTION",
+        "object_id": 3,
+        "text": "\u0418\u043d\u0446\u0438\u0434\u0435\u043d\u0442 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438 XML"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 6,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 4,
+        "text": "\u0424\u0430\u0439\u043b"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 7,
+    "fields": {
+        "lang": "LANGENG",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "DESCRIPTION",
+        "object_id": 4,
+        "text": "\u0421\u0443\u0449\u043d\u043e\u0441\u0442\u044c \u0444\u0430\u0439\u043b"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 8,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "evt",
+            "event"
+        ],
+        "column_name": "NAME",
+        "object_id": 2,
+        "text": "\u0418\u043d\u0446\u0438\u0434\u0435\u043d\u0442 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438 \u0434\u0430\u043d\u043d\u044b\u0445"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 9,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "evt",
+            "event"
+        ],
+        "column_name": "DESCRIPTION",
+        "object_id": 2,
+        "text": "\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438 \u0434\u0430\u043d\u043d\u044b\u0445 XML"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 10,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "evt",
+            "event"
+        ],
+        "column_name": "NAME",
+        "object_id": 1,
+        "text": "\u0413\u041a\u041d \u0434\u0430\u043d\u043d\u044b\u0435 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u044b"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 11,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "evt",
+            "event"
+        ],
+        "column_name": "DESCRIPTION",
+        "object_id": 1,
+        "text": "\u041f\u043e\u0438\u0441\u043a \u043f\u043e \u0431\u0430\u0437\u0435 \u0432\u0445\u043e\u0434\u044f\u0449\u0438\u0445 \u0438 \u043e\u0431\u0440\u0430\u0431\u043e\u0442\u0430\u043d\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445 \u0432\u0435\u0440\u043d\u0443\u043b \u043f\u0443\u0441\u0442\u043e\u0439 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 12,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "evt",
+            "event"
+        ],
+        "column_name": "NAME",
+        "object_id": 3,
+        "text": "\u041f\u0440\u0430\u0432\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u044b"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 13,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "evt",
+            "event"
+        ],
+        "column_name": "DESCRIPTION",
+        "object_id": 3,
+        "text": "\u041f\u0440\u0430\u0432\u0430 \u043f\u043e \u043d\u043e\u043c\u0435\u0440\u0443 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u044b \u0432 \u0431\u0430\u0437\u0435 \u0432\u0445\u043e\u0434\u044f\u0449\u0438\u0445 \u0438 \u0432 \u0431\u0430\u0437\u0435 \u043e\u0431\u0440\u0430\u0431\u043e\u0442\u0430\u043d\u043d\u044b\u0445 \u043d\u043e\u043c\u0435\u0440\u043e\u0432."
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 14,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 7,
+        "text": "\u0412\u0445\u043e\u0434\u044f\u0449\u0438\u0439 \u0444\u0430\u0439\u043b \u0420\u0420"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 15,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "DESCRIPTION",
+        "object_id": 7,
+        "text": "\u0412\u0445\u043e\u0434\u044f\u0449\u0438\u0439 XML-\u0444\u0430\u0439\u043b \u043e\u0442 \u0420\u043e\u0441\u0440\u0435\u0435\u0441\u0442\u0440\u0430"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 16,
+    "fields": {
+        "lang": "LANGENG",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 8,
+        "text": "Event status"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 17,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 8,
+        "text": "\u0421\u0442\u0430\u0442\u0443\u0441 \u0441\u043e\u0431\u044b\u0442\u0438\u044f"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 18,
+    "fields": {
+        "lang": "LANGENG",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 9,
+        "text": "Ready"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 19,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 9,
+        "text": "\u0413\u043e\u0442\u043e\u0432"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 20,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 10,
+        "text": "\u041e\u0431\u0440\u0430\u0431\u043e\u0442\u0430\u043d\u043e"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 21,
+    "fields": {
+        "lang": "LANGENG",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 10,
+        "text": "Processed"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 22,
+    "fields": {
+        "lang": "LANGENG",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 11,
+        "text": "Don't processed"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 23,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 11,
+        "text": "\u041d\u0435 \u043e\u0431\u0440\u0430\u0431\u043e\u0442\u0430\u043d\u043e"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 24,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 12,
+        "text": "\u0421\u043e\u0431\u044b\u0442\u0438\u0435"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 25,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "DESCRIPTION",
+        "object_id": 12,
+        "text": "\u0422\u0438\u043f \u0441\u0443\u0449\u043d\u043e\u0441\u0442\u0438 \u0441\u043e\u0431\u044b\u0442\u0438\u0435."
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 26,
+    "fields": {
+        "lang": "LANGENG",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 12,
+        "text": "Event"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 27,
+    "fields": {
+        "lang": "LANGENG",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 13,
+        "text": "Rule category"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 28,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 13,
+        "text": "\u041a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 \u043f\u0440\u0430\u0432\u0438\u043b"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 29,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 14,
+        "text": "\u041e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u0441\u043e\u0431\u044b\u0442\u0438\u0439"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 30,
+    "fields": {
+        "lang": "LANGENG",
+        "content_type": [
+            "com",
+            "dictionary"
+        ],
+        "column_name": "NAME",
+        "object_id": 14,
+        "text": "Event processing"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 31,
+    "fields": {
+        "lang": "LANGRUS",
+        "content_type": [
+            "rul",
+            "ruleset"
+        ],
+        "column_name": "NAME",
+        "object_id": 1,
+        "text": "\u041f\u0435\u0440\u0435\u043c\u0435\u0449\u0435\u043d\u0438\u0435 \u0444\u0430\u0439\u043b\u0430"
+    }
+},
+{
+    "model": "com.i18n",
+    "pk": 32,
+    "fields": {
+        "lang": "LANGENG",
+        "content_type": [
+            "rul",
+            "ruleset"
+        ],
+        "column_name": "NAME",
+        "object_id": 1,
+        "text": "Move file"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 1,
+    "fields": {
+        "dict_code": "DICT",
+        "code": "ENTT",
+        "is_numeric": false,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "COM"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 2,
+    "fields": {
+        "dict_code": "ENTT",
+        "code": "EVNT",
+        "is_numeric": false,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "COM"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 3,
+    "fields": {
+        "dict_code": "EVNT",
+        "code": "0001",
+        "is_numeric": true,
+        "is_editable": true,
+        "inst_id": 9999,
+        "module_code": "COM"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 4,
+    "fields": {
+        "dict_code": "ENTT",
+        "code": "FILE",
+        "is_numeric": false,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "COM"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 5,
+    "fields": {
+        "dict_code": "EVNT",
+        "code": "0002",
+        "is_numeric": false,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "COM"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 6,
+    "fields": {
+        "dict_code": "EVNT",
+        "code": "0003",
+        "is_numeric": true,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "COM"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 7,
+    "fields": {
+        "dict_code": "ENTT",
+        "code": "RRFL",
+        "is_numeric": false,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "COM"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 8,
+    "fields": {
+        "dict_code": "DICT",
+        "code": "EVST",
+        "is_numeric": true,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "EVT"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 9,
+    "fields": {
+        "dict_code": "EVST",
+        "code": "0001",
+        "is_numeric": false,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "COM"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 10,
+    "fields": {
+        "dict_code": "EVST",
+        "code": "0002",
+        "is_numeric": true,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "EVT"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 11,
+    "fields": {
+        "dict_code": "EVST",
+        "code": "0003",
+        "is_numeric": false,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "COM"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 12,
+    "fields": {
+        "dict_code": "DICT",
+        "code": "EVNT",
+        "is_numeric": true,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "EVT"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 13,
+    "fields": {
+        "dict_code": "DICT",
+        "code": "RLCG",
+        "is_numeric": false,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "COM"
+    }
+},
+{
+    "model": "com.dictionary",
+    "pk": 14,
+    "fields": {
+        "dict_code": "RLCG",
+        "code": "EVNT",
+        "is_numeric": false,
+        "is_editable": false,
+        "inst_id": 9999,
+        "module_code": "RUL"
+    }
+}
+]

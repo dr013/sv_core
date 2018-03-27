@@ -1,0 +1,10 @@
+{
+"page": {{ current_page }},
+"total": {{ total_page }},
+"records": {{ total_records }},
+"rows": [
+{% for rec in servers %}
+    {"id":"{{ rec.id }}","cell":["{{ rec.id }}","{{ rec.address_name }}","{{ rec.address_ip }}","{{ rec.inst }}","{{ rec.desc }}"]} {% if forloop.last %}{% else %},{% endif %}
+{% endfor %}
+        ]
+}

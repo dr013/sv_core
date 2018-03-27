@@ -1,0 +1,40 @@
+[
+{
+    "model": "evt.event",
+    "pk": 1,
+    "fields": {
+        "event_type": "EVNT0002",
+        "is_cached": true,
+        "status_lov": null
+    }
+},
+{
+    "model": "evt.event",
+    "pk": 2,
+    "fields": {
+        "event_type": "EVNT0001",
+        "is_cached": false,
+        "status_lov": null
+    }
+},
+{
+    "model": "evt.event",
+    "pk": 3,
+    "fields": {
+        "event_type": "EVNT0003",
+        "is_cached": true,
+        "status_lov": null
+    }
+},
+{
+    "model": "evt.eventtype",
+    "pk": 1,
+    "fields": {
+        "created_at": "2018-03-13T02:29:17.249Z",
+        "updated_at": "2018-03-13T02:29:17.249Z",
+        "deleted_at": null,
+        "event_type": "EVNT0001",
+        "entity_type": "ENTTFILE"
+    }
+}
+]

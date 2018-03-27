@@ -1,0 +1,83 @@
+<style type="text/css">
+    p.p3 {
+        margin: 0.0px 0.0px 0.0px 0.0px;
+        font: 12.0px Helvetica
+    }
+
+    p.p4 {
+        margin: 0.0px 0.0px 0.0px 0.0px;
+        text-align: center;
+        font: 12.0px Helvetica
+    }
+
+    span.s1 {
+        letter-spacing: 0.0px
+    }
+
+    table.t1 {
+        background-color: #ffffff;
+        border-collapse: collapse
+    }
+
+    td.td1 {
+        width: 149.2px;
+        height: 14.0px;
+        background-color: #bec0bf;
+        border: 1.0px solid #000000;
+        padding: 5.0px 5.0px 5.0px 5.0px
+    }
+
+    td.td4 {
+        width: 149.2px;
+        height: 14.0px;
+        background-color: #e4ee52;
+        border: 1.0px solid #000000;
+        padding: 5.0px 5.0px 5.0px 5.0px
+    }
+
+    td.td2 {
+        width: 149.2px;
+        height: 39.0px;
+        border: 1.0px solid #000000;
+        padding: 5.0px 5.0px 5.0px 5.0px
+    }
+
+    td.td3 {
+        width: 149.2px;
+        height: 14.0px;
+        border: 1.0px solid #000000;
+        padding: 5.0px 5.0px 5.0px 5.0px
+    }
+
+    th {
+        text-align: center
+    }
+</style>
+<h2>Отчет о сборке</h2>
+<table>
+    <tbody>
+    <tr>
+        <th>Project:</th>
+        <td>{{ project.project_name }} - {{ project.desc }}</td>
+    </tr>
+    <tr>
+        <th>Task name:</th>
+        <td>{{ task_name }}</td>
+    </tr>
+    <tr>
+        <th>Build type:</th>
+        <td>{{ build_type }}</td>
+    </tr>
+    <tr>
+        <th>DB scheme</th>
+        <td>{{ db_scheme }}</td>
+    </tr>
+
+    <tr>
+        <th colspan="2">SVN log:</th>
+    </tr>
+    </tbody>
+</table>
+{% for rec in log_tab %}
+    {{ rec.0 }} {{ rec.1 }} {{ rec.2 }}
+{% endfor %}
