@@ -1,19 +1,18 @@
-
 from django.contrib.auth.models import User
 from django.db import models
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from core.com.models import BaseLang
-from core.com.models import I18n, Lov
+from core.com.models import Lov
 from core.com.models import Parameter
 
 INSTANCE_TYPE = [
-    (u'ISTPSSH', u'Server ssh access'),
-    (u'ISTPSBVN', u'SVN repository'),
-    ('ISTPGIT', 'Git repository'),
-    (u'ISTPORCL', u'Oracle database'),
-    (u'ISTPPSGR', u'PostgreSQL database'),
-    (u'ISTPJIRA', u'JIRA is the project tracker'),
+    (u'ISTPSSH', _("Server ssh access")),
+    (u'ISTPSBVN', _("SVN repository")),
+    ('ISTPGIT', _("Git repository")),
+    (u'ISTPORCL', _("Oracle database")),
+    (u'ISTPPSGR', _("PostgreSQL database")),
+    (u'ISTPJIRA', _("JIRA is the project tracker")),
 ]
 
 DEFAULT_INST = 9999
@@ -37,11 +36,11 @@ class Institution(BaseLang):
 
 
 class InstanceType(BaseLang):
-    instance_type = models.CharField(max_length=8, verbose_name=_('Instance type'), choices=INSTANCE_TYPE)
-    connect_tmpl = models.CharField(max_length=200, verbose_name=_('Connect template'), null=True, blank=True)
+    instance_type = models.CharField(max_length=8, verbose_name=_("Instance type"), choices=INSTANCE_TYPE)
+    connect_tmpl = models.CharField(max_length=200, verbose_name=_("Connect template"), null=True, blank=True)
 
     class Meta:
-        verbose_name = _('Instance type')
+        verbose_name = _("Instance type")
         verbose_name_plural = verbose_name
         db_table = 'ost_instance_type'
 
@@ -52,16 +51,16 @@ class InstanceType(BaseLang):
 class InstanceTypeParameter(models.Model):
     instance_type = models.ForeignKey(InstanceType, on_delete=models.CASCADE)
     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE)
-    order = models.PositiveSmallIntegerField(db_column='ord', verbose_name=_('Ordering'))
+    order = models.PositiveSmallIntegerField(db_column="ord", verbose_name=_("Ordering"))
     lov = models.ForeignKey(Lov, blank=True, null=True, on_delete=models.SET_NULL)
-    default_value = models.CharField(verbose_name=_('Default value'), max_length=2000, null=True, blank=True)
-    is_required = models.BooleanField(verbose_name=_('Required'), default=True)
+    default_value = models.CharField(verbose_name=_("Default value"), max_length=2000, null=True, blank=True)
+    is_required = models.BooleanField(verbose_name=_("Required"), default=True)
 
     class Meta:
-        db_table = 'ost_inst_type_parameter'
-        verbose_name = _('Instance type parameter')
-        verbose_name_plural = _('Instance type parameters')
-        ordering = ['order']
+        db_table = "ost_inst_type_parameter"
+        verbose_name = _("Instance type parameter")
+        verbose_name_plural = _("Instance type parameters")
+        ordering = ['order',]
 
     def __str__(self):
         return '%s %s' % (self.instance_type.instance_type, self.parameter)
@@ -83,82 +82,47 @@ class Server(models.Model):
         return '%s(%s)-%s' % (self.server_name, self.address_ip, self.desc)
 
     class Meta:
-        unique_together = ('address_ip', 'server_name')
-        db_table = 'ost_server'
+        unique_together = ("address_ip", "server_name")
+        db_table = "ost_server"
 
 
 class Instance(models.Model):
     server = models.ForeignKey(Server, on_delete=models.CASCADE)
     instance_type = models.ForeignKey(InstanceType, on_delete=models.CASCADE)
-    name = models.CharField(max_length=200, verbose_name=_('Instance name'))
+    name = models.CharField(max_length=200, verbose_name=_("Instance name"))
 
     def __str__(self):
         return u'%s - %s' % (self.server.server_name, self.name)
 
     class Meta:
-        unique_together = ('name',)
+        unique_together = ("name",)
         permissions = (
             ("view", "Can view instance"),
         )
-        db_table = 'ost_instance'
+        db_table = "ost_instance"
 
 
 class InstanceParameterValue(models.Model):
     instance_parameter = models.ForeignKey(InstanceTypeParameter, on_delete=models.CASCADE)
-    parameter_value = models.CharField(max_length=200, db_column='param_value')
+    parameter_value = models.CharField(max_length=200, db_column="param_value")
     instance = models.ForeignKey(Instance, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = 'ost_instance_parameter_value'
-        verbose_name = _('Parameter value')
+        db_table = "ost_instance_parameter_value"
+        verbose_name = _("Parameter value")
 
     def __str__(self):
         return u'%s %s := %s' % (self.instance, self.instance_parameter.parameter.name, self.parameter_value)
 
 
-class ServerUser(models.Model):
-    """
-    UserProfile
-    """
-    empl = models.ForeignKey(User, on_delete=models.CASCADE)
-    server = models.ForeignKey(Server, on_delete=models.CASCADE)
-    front = models.BooleanField(default=False, verbose_name=_('Front access'))
-    back = models.BooleanField(default=False, verbose_name=_('Backoffice access'))
-    web = models.BooleanField(default=False, verbose_name=_('Web application access'))
-
-    def __str__(self):
-        return '%s on %s' % (self.empl.get_full_name(), self.server.server_name)
-
-    class Meta:
-        db_table = 'ost_server_user'
-        verbose_name = _('User on server')
-
-
-class Repo(models.Model):
-    repo_name = models.CharField(verbose_name=_('Repository name'), max_length=200)
-    repo_key = models.CharField(verbose_name=_('Search key'), max_length=200, unique=True)
-    instance = models.ForeignKey(Instance, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.repo_key
-
-    class Meta:
-        db_table = 'ost_repo'
-        verbose_name = _('Repositories')
-        verbose_name_plural = verbose_name
-
-    def name(self):
-        return '%s' % self.repo_name
-
-
 class Agent(models.Model):
     inst = models.ForeignKey(Institution, on_delete=models.CASCADE)
-    name = models.CharField(max_length=200, verbose_name=_('Internal group'))
+    name = models.CharField(max_length=200, verbose_name=_("Internal group"))
     note = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        db_table = 'ost_agent'
-        verbose_name = _('Internal group')
+        db_table = "ost_agent"
+        verbose_name = _("Internal group")

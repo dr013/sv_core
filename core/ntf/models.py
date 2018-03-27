@@ -1,13 +1,4 @@
-#!/usr/bin/env python
-# coding=utf-8
-# Created by 'Krukov' at 08.11.13 10:57<br />
-# Last changed by $Author$
-# $LastChangedDate::$
-#  Revision: $LastChangedRevision$
-#  Module:
-#  $Header$
-#  @headcom
-# django
+# Created by 'Evgeny Krukov' at 08.11.13 10:57<
 import logging
 
 from django.contrib.auth.models import User
