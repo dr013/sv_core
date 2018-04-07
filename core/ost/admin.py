@@ -3,9 +3,8 @@
 
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericTabularInline
-
-from .models import *
 from core.com.models import I18n
+from .models import *
 
 
 class I18nInline(GenericTabularInline):
@@ -54,9 +53,11 @@ class InstanceTypeParameterAdmin(admin.ModelAdmin):
 
 
 admin.site.register(InstanceType, InstanceTypeAdmin)
+# admin.site.register(ServerUser)
 admin.site.register(InstanceTypeParameter, InstanceTypeParameterAdmin)
 admin.site.register(InstanceParameterValue)
 admin.site.register(Instance, InstanceAdmin)
+# admin.site.register(Repo)
 admin.site.register(Server, ServerAdmin)
 admin.site.register(Agent)
 admin.site.register(Institution, InstitutionAdmin)

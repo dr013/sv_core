@@ -49,14 +49,14 @@ def get_dict_value():
     sql = """
        select 'DICT', 'DICT - Dictionary'
        union all
-       select code, code || ' - ' || b.text  
+       select code, code || ' - ' || b.text
          from com_dictionary a
             , com_i18n b
             , django_content_type d
              ,(select 'LANGENG' as lang
                union all
                select 'LANGRUS') z
-        where b.content_type_id = d.id 
+        where b.content_type_id = d.id
           and b.object_id = a.id
           and b.lang = z.lang
           and d.model = 'dictionary'
@@ -79,10 +79,11 @@ class I18n(models.Model):
     """Internalizations"""
     lang = models.CharField(max_length=8, help_text=_('Language code'), choices=LANG_CHOICE, verbose_name=_('Language'))
     content_type = models.ForeignKey(ContentType, blank=True, null=True, verbose_name=_("Entity_type"),
-                                     on_delete=models.CASCADE)
-    column_name = models.CharField(max_length=30, verbose_name=_('Column name'), choices=COLS)
-    object_id = models.PositiveIntegerField()
-    text = models.TextField()
+                                     on_delete=models.CASCADE, help_text=_("Type of entity - i18n value owner."))
+    column_name = models.CharField(max_length=30, verbose_name=_('Column name'), choices=COLS,
+                                   help_text=_("Virtual column name."))
+    object_id = models.PositiveIntegerField(_("Object ID"), help_text=_("Reference to entity object."))
+    text = models.TextField(_("Text"), help_text=_("Content of column in exact language."))
     entity = fields.GenericForeignKey('content_type', 'object_id')
 
     class Meta:
