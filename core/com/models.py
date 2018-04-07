@@ -1,90 +1,47 @@
 import logging
-import zlib
 
 from django.conf import settings
 from django.contrib.contenttypes import fields
 from django.contrib.contenttypes.models import ContentType
-from django.db import connection, DatabaseError
 from django.db import models
 from django.utils import translation
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
+
+from .api import get_dict_value
 
 logger = logging.getLogger(__name__)
 
-LANG = {
-    'ru': 'LANGRUS',
-    'en': 'LANGENG',
-}
-
 COLS = (
-    ('NAME', _('Name')),
-    ('DESCRIPTION', _('Description')),
-    ('LABEL', _('Label')),
-    ('CAPTION', _('Caption'))
-)
-
-LANG_CHOICE = (
-    ('LANGRUS', _('Russian')),
-    ('LANGENG', _('English'))
+    ("NAME", _("Name")),
+    ("DESCRIPTION", _("Description")),
 )
 
 DATA_TYPE = (
-    ('DTTPCHAR', _('String')),
-    ('DTTPNMBR', _('Number')),
-    ('DTTPDATE', _('Date'))
+    ("DTTPCHAR", _("String")),
+    ("DTTPNMBR", _("Number")),
+    ("DTTPDATE", _("Date"))
 )
 
 LABEL_TYPE = (
-    ('ERROR', _('Error')),
-    ('FATAL', _('Fatal error')),
-    ('INFO', _('Info')),
-    ('LABEL', _('Label')),
-    ('CAPTION', _('Caption')),
+    ("ERROR", _("Error")),
+    ("FATAL", _("Fatal error")),
+    ("INFO", _("Info")),
+    ("LABEL", _("Label")),
+    ("CAPTION", _("Caption")),
 )
-
-
-def get_dict_value():
-    cursor = connection.cursor()
-    cur_language = translation.get_language()
-    sql = """
-       select 'DICT', 'DICT - Dictionary'
-       union all
-       select code, code || ' - ' || b.text
-         from com_dictionary a
-            , com_i18n b
-            , django_content_type d
-             ,(select 'LANGENG' as lang
-               union all
-               select 'LANGRUS') z
-        where b.content_type_id = d.id
-          and b.object_id = a.id
-          and b.lang = z.lang
-          and d.model = 'dictionary'
-          and b.column_name = 'NAME'
-          and b.lang = '%s'
-          and a.dict ='DICT'
-          """ % (LANG[cur_language.lower()])
-    try:
-        cursor.execute(sql)
-        lov = [(o[0], o[1]) for o in cursor.fetchall()]
-        cursor.close()
-        return lov
-    except DatabaseError as errm:
-        error, = errm.args
-        logger.error('"Database-Error-Message: %s"' % str(error))
-        return [["", ""], ]
 
 
 class I18n(models.Model):
     """Internalizations"""
-    lang = models.CharField(max_length=8, help_text=_('Language code'), choices=LANG_CHOICE, verbose_name=_('Language'))
+    lang = models.CharField(max_length=8, help_text=_("Language code"), choices=settings.LANG_CHOICE,
+                            verbose_name=_("Language"))
     content_type = models.ForeignKey(ContentType, blank=True, null=True, verbose_name=_("Entity_type"),
                                      on_delete=models.CASCADE, help_text=_("Type of entity - i18n value owner."))
-    column_name = models.CharField(max_length=30, verbose_name=_('Column name'), choices=COLS,
+    column_name = models.CharField(max_length=30, verbose_name=_("Column name"), choices=COLS,
                                    help_text=_("Virtual column name."))
     object_id = models.PositiveIntegerField(_("Object ID"), help_text=_("Reference to entity object."))
     text = models.TextField(_("Text"), help_text=_("Content of column in exact language."))
-    entity = fields.GenericForeignKey('content_type', 'object_id')
+    entity = fields.GenericForeignKey("content_type", "object_id")
 
     class Meta:
         unique_together = (('content_type', 'object_id', 'column_name', 'lang'),)
@@ -101,11 +58,11 @@ class BaseLang(models.Model):
     def name(self):
         cur_language = translation.get_language()
         logger.debug('Current lang is %s' % cur_language)
-        rec_tab = self.i18n.all().filter(lang=LANG[cur_language.lower()], column_name='NAME')
+        rec_tab = self.i18n.all().filter(lang=settings.LANG[cur_language.lower()], column_name='NAME')
         if rec_tab:
             label = rec_tab[0].text
         else:
-            rec_tab = self.i18n.all().filter(lang=LANG[settings.LANGUAGE_CODE], column_name='NAME')
+            rec_tab = self.i18n.all().filter(lang=settings.LANG[settings.LANGUAGE_CODE], column_name='NAME')
             if rec_tab:
                 label = rec_tab[0].text
             else:
@@ -117,11 +74,11 @@ class BaseLang(models.Model):
     def description(self):
         cur_language = translation.get_language()
         logger.debug('Current lang is %s' % cur_language)
-        rec_tab = self.i18n.all().filter(lang=LANG[cur_language.lower()], column_name='DESCRIPTION')
+        rec_tab = self.i18n.all().filter(lang=settings.LANG[cur_language.lower()], column_name='DESCRIPTION')
         if rec_tab:
             label = rec_tab[0].text
         else:
-            rec_tab = self.i18n.all().filter(lang=LANG[settings.LANGUAGE_CODE], column_name='DESCRIPTION')
+            rec_tab = self.i18n.all().filter(lang=settings.LANG[settings.LANGUAGE_CODE], column_name='DESCRIPTION')
             if rec_tab:
                 label = rec_tab[0].text
             else:
@@ -209,8 +166,3 @@ class Parameter(BaseLang):
 
     def __str__(self):
         return '%s(%s) %s' % (self.param_name, self.name, self.description)
-
-
-def get_hash(value, max_hash):
-    """Calculate split hash factor"""
-    return zlib.adler32(str(value).encode()) % max_hash + 1

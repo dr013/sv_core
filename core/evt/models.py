@@ -12,20 +12,20 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from sequences import get_next_value
 
-from common.common import get_dict_choice
-from common.models import Base
-from core.com.models import BaseLang, Dictionary, get_hash
+from core.com.api import get_dict_choice
+from core.com.models import BaseLang, Dictionary
 from core.ost.models import DEFAULT_INST
 from core.prc.models import get_session_id
 from core.rul.models import load_params, execute_rule_set
-from rrgui.models import Income
+from share.common import get_hash
+from share.models import Base
 
 logger = logging.getLogger(__name__)
 
 event_shared_data = {}
 event_object_tab = []
 event_rule_tab = []
-event_params = []
+event_params = {}
 
 EVENT_STATUS_KEY = 'EVST'
 EVENT_STATUS_READY = 'EVST0001'
@@ -44,10 +44,10 @@ class Event(BaseLang):
         verbose_name = _("Event")
 
     def save(self, *args, **kwargs):
-        dict = 'EVNT'
+        dict_code = 'EVNT'
         self.event_type = self.event_type.upper()
         code = self.event_type[4:].upper()
-        d, created = Dictionary.objects.get_or_create(dict_code=dict, code=code)
+        d, created = Dictionary.objects.get_or_create(dict_code=dict_code, code=code)
         if created:
             d.save()
         super().save(*args, **kwargs)
@@ -163,12 +163,12 @@ def register_event(event_type, eff_date, entity_type, object_id, param_tab, stat
 
     split_hash = get_hash(object_id, settings.SPLIT_DEGREE)
     l_param_tab = param_tab
-    l_param_tab['EVENT_TYPE'] = event_type
-    l_param_tab['EVENT_DATE'] = eff_date
-    l_param_tab['ENTITY_TYPE'] = entity_type
-    l_param_tab['OBJECT_ID'] = object_id
-    l_param_tab['INST_ID'] = inst_id
-    l_param_tab['SPLIT_HASH'] = split_hash
+    l_param_tab["EVENT_TYPE"] = event_type
+    l_param_tab["EVENT_DATE"] = eff_date
+    l_param_tab["ENTITY_TYPE"] = entity_type
+    l_param_tab["OBJECT_ID"] = object_id
+    l_param_tab["INST_ID"] = inst_id
+    l_param_tab["SPLIT_HASH"] = split_hash
 
     load_params(entity_type=entity_type, object_id=object_id, param_tab=l_param_tab)
 
@@ -214,8 +214,6 @@ def flush_events():
         e.event_id = rec["event_id"]
         e.procedure_name = rec["procedure_name"]
         e.eff_date = rec["eff_date"]
-        if rec['entity_type'] == 'ENTTRRFL':
-            content_object = Income.objects.get()
 
         e.content_object = content_object
         e.session_id = rec["session_id"]
@@ -242,5 +240,6 @@ def flush_events():
         load_params(entity_type=rec["entity_type"], object_id=rec["object_id"], param_tab=event_params)
 
         cnt = execute_rule_set(rec.rule_set_id, event_params)
+        logger.debug("Count of runs: %d" % cnt)
 
     event_rule_tab.clear()

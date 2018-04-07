@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from common.models import Base
+from share.models import Base
 
 
 class Session(Base):

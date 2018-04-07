@@ -1,13 +1,12 @@
+import importlib
 import logging
 
-import importlib
-from django.core.exceptions import ObjectDoesNotExist
 from django.db import models, connection
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 
-from common.common import get_dict_choice, lookahead
+from core.com.api import get_dict_choice
 from core.com.models import BaseLang
-from rrgui.models import Income
+from share.common import lookahead
 
 rul_shared_data = {}
 logger = logging.getLogger(__name__)
@@ -160,28 +159,10 @@ def load_params(entity_type, object_id, param_tab):
     if object_type == 'RRFL':
         income_file_id = object_id
 
-    if income_file_id:
-        load_income_param(income_file_id, param_tab)
-
 
 def set_param(name, value, param_tab):
     param_tab[name.upper()] = value
     logger.debug('Parameter {} value set to {}'.format(name, value))
-
-
-def load_income_param(income_file_id, param_tab):
-    try:
-        result = Income.objects.get(pk=income_file_id)
-    except ObjectDoesNotExist as errm:
-        logger.error("Income file {} does not exist".format(income_file_id))
-        logger.error(str(errm))
-        return
-
-    param_tab["ARCHIVE_NAME"] = result.archive_name
-    param_tab["ARCHIVE_SIZE"] = result.archive_size
-    param_tab["IMPORT_TYPE"] = result.import_type
-    param_tab["REGION"] = result.region
-    param_tab["ARCHIVE_DATE"] = result.archive_date
 
 
 def execute_rule_set(rule_set_id, event_params):
@@ -243,5 +224,6 @@ ORDER BY rp.exec_order
 
                 except ImportError as err:
                     logger.fatal("Error import rule procedure {}".format(rec["proc_name"]))
+                    logger.error(str(err))
 
             return cnt
