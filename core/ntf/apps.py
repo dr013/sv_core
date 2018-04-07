@@ -3,5 +3,5 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class NotificationConfig(AppConfig):
-    name = 'core.ntf'
+    name = "core.ntf"
     verbose_name = _("Notification")

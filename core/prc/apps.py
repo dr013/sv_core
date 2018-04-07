@@ -3,5 +3,5 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class ProcessConfig(AppConfig):
-    name = 'core.prc'
+    name = "core.prc"
     verbose_name = _("Process")

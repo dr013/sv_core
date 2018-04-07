@@ -3,5 +3,5 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class SecureConfig(AppConfig):
-    name = 'core.sec'
-    verbose_name = _('Security')
+    name = "core.sec"
+    verbose_name = _("Security")
