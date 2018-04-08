@@ -1,1 +1,4 @@
 -r test.txt
+Sphinx
+wheel
+pip-licenses

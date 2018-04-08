@@ -13,7 +13,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.Python
 build/
 develop-eggs/
 dist/
@@ -81,3 +80,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 **/migrations/
+sv_core/settings/dev.py
+

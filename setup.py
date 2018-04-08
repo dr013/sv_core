@@ -12,3 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from os import path
+
+from setuptools import setup, find_packages
+
+from share.common import get_version
+
+setup(
+    name="sv_core",
+    version=get_version(),
+    author="Eugene Kryukov",
+    author_email="ekryukov@icloud.com",
+    packages=find_packages(exclude=["manage.py", ]),
+    license='APACHE2.0',
+    python_requires='>=3',
+    long_description=open(path.join(path.dirname(__file__), "README.md")).read(),
+    long_description_content_type="text/markdown",
+    install_requires=[
+        "Django==2.0.3",
+        "django-sequences==2.2",
+
+    ]
+)
