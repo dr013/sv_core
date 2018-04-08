@@ -16,7 +16,7 @@ from os import path
 
 from setuptools import setup, find_packages
 
-from share.common import get_version
+from sv_core.share.common import get_version
 
 setup(
     name="sv_core",
@@ -29,7 +29,6 @@ setup(
     long_description=open(path.join(path.dirname(__file__), "README.md")).read(),
     long_description_content_type="text/markdown",
     install_requires=[
-        "Django==2.0.3",
         "django-sequences==2.2",
     ],
     url="https://github.com/dr013/sv_core",
