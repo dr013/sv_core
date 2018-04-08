@@ -1,0 +1,5 @@
+build:
+    script:
+        - ls
+    tags:
+        - python35
