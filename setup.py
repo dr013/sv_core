@@ -31,6 +31,6 @@ setup(
     install_requires=[
         "Django==2.0.3",
         "django-sequences==2.2",
-
-    ]
+    ],
+    url="https://github.com/dr013/sv_core",
 )
