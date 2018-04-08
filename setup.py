@@ -23,8 +23,9 @@ setup(
     version=get_version(),
     author="Eugene Kryukov",
     author_email="ekryukov@icloud.com",
-    packages=find_packages(exclude=["manage.py",]),
-    license='MIT',
+    packages=find_packages(exclude=["manage.py", ]),
+    license='APACHE2.0',
+    python_requires='>=3',
     long_description=open(path.join(path.dirname(__file__), "README.md")).read(),
     long_description_content_type="text/markdown",
     install_requires=[
