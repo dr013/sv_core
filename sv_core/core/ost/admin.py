@@ -3,7 +3,7 @@
 
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericTabularInline
-from core.com.models import I18n
+from com.models import I18n
 from .models import *
 
 

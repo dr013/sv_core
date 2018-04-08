@@ -12,11 +12,11 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from sequences import get_next_value
 
-from core.com.api import get_dict_choice
-from core.com.models import BaseLang, Dictionary
-from core.ost.models import DEFAULT_INST
-from core.prc.models import get_session_id
-from core.rul.models import load_params, execute_rule_set
+from com.api import get_dict_choice
+from com.models import BaseLang, Dictionary
+from ost.models import DEFAULT_INST
+from prc.models import get_session_id
+from rul.models import load_params, execute_rule_set
 from share.common import get_hash
 from share.models import Base
 

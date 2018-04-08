@@ -11,11 +11,15 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import sys
 
 from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+PROJECT_ROOT = os.path.join(BASE_DIR, "sv_core")
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'core'))
+sys.path.insert(0, PROJECT_ROOT)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -36,14 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core.com.apps.CommonConfig',
-    'core.evt.apps.EventtConfig',
-    'core.ntf.apps.NotificationConfig',
-    'core.ost.apps.OrganizationalStructureConfig',
-    'core.prc.apps.ProcessConfig',
-    'core.rpt.apps.ReportConfig',
-    'core.rul.apps.RuleConfig',
-    'core.sec.apps.SecureConfig',
+    'sv_core.core.com.apps.CommonConfig',
+    'sv_core.core.evt.apps.EventConfig',
+    'sv_core.core.ntf.apps.NotificationConfig',
+    'sv_core.core.ost.apps.OrganizationalStructureConfig',
+    'sv_core.core.prc.apps.ProcessConfig',
+    'sv_core.core.rpt.apps.ReportConfig',
+    'sv_core.core.rul.apps.RuleConfig',
+    'sv_core.core.sec.apps.SecureConfig',
+
 ]
 
 INSTALLED_APPS += ['sequences.apps.SequencesConfig']
@@ -77,16 +82,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'sv_core.wsgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

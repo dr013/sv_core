@@ -4,5 +4,5 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class CommonConfig(AppConfig):
-    name = "core.com"
+    name = "com"
     verbose_name = _("Common")

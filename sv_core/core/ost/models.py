@@ -2,9 +2,9 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from core.com.models import BaseLang
-from core.com.models import Lov
-from core.com.models import Parameter
+from com.models import BaseLang
+from com.models import Lov
+from com.models import Parameter
 
 INSTANCE_TYPE = [
     (u'ISTPSSH', _("Server ssh access")),

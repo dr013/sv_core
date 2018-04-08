@@ -4,8 +4,8 @@ import logging
 from django.db import models, connection
 from django.utils.translation import ugettext_lazy as _
 
-from core.com.api import get_dict_choice
-from core.com.models import BaseLang
+from com.api import get_dict_choice
+from com.models import BaseLang
 from share.common import lookahead
 
 rul_shared_data = {}

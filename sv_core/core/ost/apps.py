@@ -3,5 +3,5 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class OrganizationalStructureConfig(AppConfig):
-    name = "core.ost"
+    name = "ost"
     verbose_name = _("Organizational Structure")
