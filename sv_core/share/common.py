@@ -41,7 +41,3 @@ def get_hash(value, max_hash):
     """Calculate split hash factor"""
     return zlib.adler32(str(value).encode()) % max_hash + 1
 
-def get_version():
-    with open("VERSION") as f:
-        version = f.read().strip()
-    return version

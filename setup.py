@@ -16,7 +16,10 @@ from os import path
 
 from setuptools import setup, find_packages
 
-from sv_core.core.share.common import get_version
+def get_version():
+    with open("VERSION") as f:
+        version = f.read().strip()
+    return version
 
 setup(
     name="sv_core",
