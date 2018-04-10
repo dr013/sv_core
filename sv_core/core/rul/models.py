@@ -4,9 +4,9 @@ import logging
 from django.db import models, connection
 from django.utils.translation import ugettext_lazy as _
 
-from com.api import get_dict_choice
-from com.models import BaseLang
-from share.common import lookahead
+from sv_core.core.com.api import get_dict_choice
+from sv_core.core.com.models import BaseLang
+from sv_core.share.common import lookahead
 
 rul_shared_data = {}
 logger = logging.getLogger(__name__)

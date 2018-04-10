@@ -3,5 +3,5 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class ReportConfig(AppConfig):
-    name = "rpt"
+    name = "sv_core.core.rpt"
     verbose_name = _("Report")

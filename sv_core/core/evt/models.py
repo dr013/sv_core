@@ -12,13 +12,13 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from sequences import get_next_value
 
-from com.api import get_dict_choice
-from com.models import BaseLang, Dictionary
-from ost.models import DEFAULT_INST
-from prc.models import get_session_id
-from rul.models import load_params, execute_rule_set
-from share.common import get_hash
-from share.models import Base
+from sv_core.core.com.api import get_dict_choice
+from sv_core.core.com.models import BaseLang, Dictionary
+from sv_core.core.ost.models import DEFAULT_INST
+from sv_core.core.prc.models import get_session_id
+from sv_core.core.rul.models import load_params, execute_rule_set
+from sv_core.share.common import get_hash
+from sv_core.share.models import Base
 
 logger = logging.getLogger(__name__)
 

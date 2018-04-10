@@ -1,11 +1,11 @@
-# Created by 'Evgeny Krukov' at 08.11.13 10:57<
+# Created by 'Evgeny Krukov' at 08.11.13 10:57
 import logging
 
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from com.models import BaseLang
+from sv_core.core.com.models import BaseLang
 
 logger = logging.getLogger(__name__)
 

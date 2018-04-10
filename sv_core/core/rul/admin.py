@@ -3,7 +3,7 @@ __author__ = 'Evgeny Kryukov<ekryukov@icloud.com>'
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericTabularInline
 
-from com.models import I18n
+from sv_core.core.com.models import I18n
 from .models import NameFormat, Rule, RuleSet, Procedure, Scale, Modifier, ProcedureParameter, ModifierParameter, \
     ParameterValue
 
