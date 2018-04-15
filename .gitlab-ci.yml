@@ -1,5 +1,26 @@
-build:
-    script:
-        - ls
+before_script:
+  - virtualenv -p python3 venv
+  - source venv/bin/activate
+  - pip install --upgrade pip
+  - pip install --upgrade -q -r requirements/test.txt
+stages:
+  - test
+  - build
+unittest:
+  stage: test
+  script:
+    - coverage run --source='.' manage.py test -d -v 2 --parallel 2
+    - coverage report
+  tags:
+    - python35
     tags:
         - python35
+test_deploy:
+  stage: deploy
+  script:
+      - ./manage.py compilemessages
+      - ./manage.py migrate
+  only:
+    - master
+  tags:
+    - python35
