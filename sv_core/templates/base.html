@@ -20,7 +20,7 @@
 {% endfor %}
 {% block header %}
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">{{ PROJECT_TITLE }}</a>
+        <a class="navbar-brand" href="#">DKS CAMS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,35 +30,39 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
 
-                {% if user.is_staff  %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin:index' %}">{% trans "Administration" %} </a>
-                </li>
-                 {% endif %}
+                {% if user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'admin:index' %}">{% trans "Administration" %} </a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01"
+                           data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">Profile</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="{% url 'empl-update' user.pk %}">Settings</a>
+                            <a class="dropdown-item" href="{% url 'change_password' %}">Change password</a>
+                        </div>
+                    </li>
+                {% endif %}
             </ul>
             <ul class="navbar-nav px-3">
                 {% if user.is_authenticated %}
                     <li class="nav-item text-nowrap">
                         <a class="nav-link" href="{% url 'index' %}">{% trans "Logged in as " %}{{ user.username }}</a>
                     </li>
-                    <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
+                    </li>
                 {% else %}
-                    <li class="nav-item active"><a class="nav-link" href="{% url "login" %}">{% trans "Login" %}</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{% url "login" %}">{% trans "Login" %}</a>
+                    </li>
                 {% endif %}
             </ul>
         </div>
@@ -66,6 +70,91 @@
 
 {% endblock %}
 {% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <span data-feather="home"></span>
+                                Dashboard <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file"></span>
+                                Orders
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="shopping-cart"></span>
+                                Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="users"></span>
+                                Customers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="bar-chart-2"></span>
+                                Reports
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="layers"></span>
+                                Integrations
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Saved reports</span>
+                        <a class="d-flex align-items-center text-muted" href="#">
+                            <span data-feather="plus-circle"></span>
+                        </a>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text"></span>
+                                Current month
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text"></span>
+                                Last quarter
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text"></span>
+                                Social engagement
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text"></span>
+                                Year-end sale
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                {% block page %}
+
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
 {% endblock %}
 
 <!-- Footer Section Starts -->
@@ -99,12 +188,20 @@
     <!-- Copyright Area Ends -->
 </footer>
 <!-- Footer Section Ends -->
+{% block js %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script>window.jQuery || document.write('<script src="{%  static 'js/jquery-3.3.1.slim.min.js' %}"><\/script>')</script>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
-<script src="{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Icons -->
+    <script src="{% static 'js/feather.min.js' %}"></script>
+    <script>
+        feather.replace()
+    </script>
+{% endblock %}
 
 </body>
 </html>

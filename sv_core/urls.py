@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
 
@@ -26,5 +26,6 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('login/', auth_views.login, {'template_name': 'login.html'}, name="login"),
                   path('logout/', auth_views.logout, {'next_page': '/'}, name='logout'),
+                  path('acm/', include('acm.urls')),
                   path('', index, name="index"),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -12,11 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.urls import path
+from django import forms
 
-from sv_core.core.acm import views
 
-urlpatterns = [
-    path('change_password/', views.change_password, name='change_password'),
-    path('update/<int:pk>/', views.EmplUpdate.as_view(), name='empl-update'),
-]
+class EmplForm(forms.Form):
+    name = forms.CharField()
+    message = forms.CharField(widget=forms.Textarea)
+
+    def send_email(self):
+        # send email using the self.cleaned_data dictionary
+        pass

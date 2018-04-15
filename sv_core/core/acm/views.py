@@ -2,12 +2,14 @@ import logging
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from django.contrib.auth import login as internal_login
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.context import RequestContext
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.views.generic.edit import UpdateView
 
 # apps
 from .models import Empl
@@ -66,3 +68,26 @@ def auth(request):
         if 'next' in request.GET:
             next_page = request.GET['next']
         return render(request, 'login.html', context=RequestContext(request))
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, _('Your password was successfully updated!'))
+            return redirect('accounts:change_password')
+        else:
+            messages.error(request, _('Please correct the error below.'))
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'change_password.html', {
+        'form': form
+    })
+
+
+class EmplUpdate(UpdateView):
+    model = Empl
+    fields = '__all__'
+    template_name = 'empl_form.html'

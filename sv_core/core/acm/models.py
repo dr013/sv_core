@@ -1,12 +1,12 @@
 # system
 import logging
 
+# django
 from django.conf import settings
 from django.contrib.auth.models import User, Permission
 from django.db import models
-# django
 from django.utils.translation import ugettext as _
-
+from django.shortcuts import reverse
 # app
 from sv_core.core.com.models import BaseLang
 from sv_core.core.ost.models import DEFAULT_INST
@@ -32,8 +32,8 @@ class Empl(models.Model):
     inst = models.ForeignKey('ost.Institution', on_delete=models.SET_DEFAULT, default=DEFAULT_INST)
 
     class Meta:
-        verbose_name_plural = _(u'Employee')
-        db_table = u'acm_user'
+        verbose_name_plural = _('Employee')
+        db_table = 'acm_user'
         permissions = (
             ("staff", "Can edit in backend"),
             ("simple", "Can view product info"),
@@ -49,6 +49,9 @@ class Empl(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    def get_absolute_url(self):
+        return reverse('empl-detail', kwargs={'pk': self.pk})
 
 
 SECTION_TYPE = [
@@ -74,7 +77,7 @@ class Section(BaseLang):
     permission = models.ManyToManyField(Permission)
 
     class Meta:
-        verbose_name_plural = _(u'Section')
+        verbose_name_plural = _('Section')
         ordering = ['display_order']
 
     def __str__(self):
