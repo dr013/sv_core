@@ -8,7 +8,6 @@ from django.db import models
 from django.utils.translation import ugettext as _
 
 # app
-from sv_core.core.com.api import get_lov_choice
 from sv_core.core.com.models import BaseLang
 from sv_core.core.ost.models import DEFAULT_INST
 
@@ -64,7 +63,7 @@ class Section(BaseLang):
     parent = models.ForeignKey('self', blank=True, null=True, on_delete=models.SET_NULL,
                                help_text=_('Parent section identifier'))
     module_code = models.CharField(max_length=8, verbose_name=_('Module code'),
-                                   help_text=_('Reference to system module. Module code.'), choices=get_lov_choice(65))
+                                   help_text=_('Reference to system module. Module code.'))
     action = models.CharField(max_length=200, help_text=_('Django navigation action'), null=True, blank=True)
     section_type = models.CharField(max_length=8, help_text=_('Section type (folder, page).'), null=True, blank=True,
                                     choices=SECTION_TYPE)
