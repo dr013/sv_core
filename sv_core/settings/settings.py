@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
+    'sv_core.core.acm.apps.AcmConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,7 +48,6 @@ INSTALLED_APPS = [
     'sv_core.core.rpt.apps.ReportConfig',
     'sv_core.core.rul.apps.RuleConfig',
     'sv_core.core.sec.apps.SecureConfig',
-
 ]
 
 INSTALLED_APPS += ['sequences.apps.SequencesConfig']
@@ -127,3 +127,6 @@ LANG_CHOICE = (
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+DEFAULT_DOMEN = 'example.com'
+LOGIN_REDIRECT_URL = 'index'

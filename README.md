@@ -2,6 +2,13 @@
 
 This is Django core template project with  Events, Notification, Processes and Reports functionality
 
+## Develop status
+
+|Branch|CI status| Coverage |
+---|---|---
+| [`master`](https://gitlab.dks.lanit.ru/features/jirabot/tree/master) |[![pipeline status](https://gitlab.dks.lanit.ru/EKryukov/sv-core/badges/master/pipeline.svg)](https://gitlab.dks.lanit.ru/EKryukov/sv-core/commits/master)|
+| [`develop`](https://gitlab.dks.lanit.ru/features/jirabot/tree/master) |[![pipeline status](https://gitlab.dks.lanit.ru/EKryukov/sv-core/badges/develop/pipeline.svg)](https://gitlab.dks.lanit.ru/EKryukov/sv-core/commits/develop)|[![coverage report](https://gitlab.dks.lanit.ru/EKryukov/sv-core/badges/develop/coverage.svg)](https://gitlab.dks.lanit.ru/EKryukov/sv-core/commits/develop)|
+
 ## Setup
 
 ```bash

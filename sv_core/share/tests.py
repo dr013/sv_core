@@ -11,12 +11,19 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import logging
 
-from django.shortcuts import render
-
-logger = logging.getLogger(__name__)
+from django.test import TestCase
+from .common import get_hash
 
 
-def index(request):
-    return render(request, 'index.html', )
+class CommonTestCase(TestCase):
+    def setUp(self):
+        pass
+        # evnt1 = Event.objects.create(event_type="evnttest", is_cached=True)
+        # self.id1 = evnt1.id
+
+    def test_get_hash(self):
+        for rec in range(1000):
+            self.assertGreaterEqual(64, get_hash(rec, 64))
+            self.assertGreater(get_hash(rec, 64), 0)
+
