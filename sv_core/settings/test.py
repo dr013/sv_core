@@ -29,6 +29,7 @@
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 import os
+from .settings import *
 
 DB_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATABASES = {
