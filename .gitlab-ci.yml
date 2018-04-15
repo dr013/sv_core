@@ -13,8 +13,6 @@ unittest:
     - coverage report
   tags:
     - python35
-    tags:
-        - python35
 test_deploy:
   stage: deploy
   script:
