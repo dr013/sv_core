@@ -27,8 +27,7 @@ sys.path.insert(0, PROJECT_ROOT)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '8w!!d9t(3e)pff^qcfa$q#*%=!lpqvrj)s^**@_i%en*pus^vz'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -68,7 +67,7 @@ ROOT_URLCONF = 'sv_core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
+        'DIRS': [os.path.join(PROJECT_ROOT, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +126,4 @@ LANG_CHOICE = (
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
