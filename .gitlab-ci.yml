@@ -14,7 +14,7 @@ unittest:
   tags:
     - python35
 test_deploy:
-  stage: deploy
+  stage: build
   script:
       - ./manage.py compilemessages
       - ./manage.py migrate
