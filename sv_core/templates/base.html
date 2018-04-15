@@ -1,4 +1,7 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_language_info for LANGUAGE_CODE as lang %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +12,59 @@
     <link rel="stylesheet" href='{% static "css/main.css" %}'>
     <meta name="description" content="">
     <meta name="author" content="Eugene Kryukov<ekryukov@icloud.com>">
-    <title>Title</title>
+    <title>{% block title %}Title{% endblock %}</title>
 </head>
 <body>
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message|safe }}</div>
+{% endfor %}
+{% block header %}
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">{{ PROJECT_TITLE }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                {% if user.is_staff  %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'admin:index' %}">{% trans "Administration" %} </a>
+                </li>
+                 {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav px-3">
+                {% if user.is_authenticated %}
+                    <li class="nav-item text-nowrap">
+                        <a class="nav-link" href="{% url 'index' %}">{% trans "Logged in as " %}{{ user.username }}</a>
+                    </li>
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+                {% else %}
+                    <li class="nav-item active"><a class="nav-link" href="{% url "login" %}">{% trans "Login" %}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+{% endblock %}
 {% block content %}
 {% endblock %}
 
@@ -39,8 +92,6 @@
         <div class="container">
             <!-- Starts -->
             <p class="pull-left">
-                &copy; 2015 Антураж мебель. Designed By <a href="http://sainathchillapuram.com">Sainath
-                Chillapuram</a>
             </p>
         </div>
         <!-- Container Ends -->

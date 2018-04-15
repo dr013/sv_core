@@ -19,8 +19,7 @@ DEFAULT_INST = 9999
 
 
 class Institution(BaseLang):
-    identity = models.PositiveSmallIntegerField(primary_key=True, db_column='id', unique=True, db_index=True,
-                                                editable=False)
+    identity = models.PositiveSmallIntegerField(primary_key=True, db_column='id', unique=True, db_index=True)
     seqnum = models.PositiveSmallIntegerField(default=1, editable=False)
     parent_id = models.ForeignKey('Institution', blank=True, null=True, related_name='child_set',
                                   on_delete=models.CASCADE)
