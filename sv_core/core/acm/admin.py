@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.admin import GenericTabularInline
 from django.utils.translation import ugettext as _
 
-from sv_core.core.acm.models import Empl, Section, AgentEmpl
+from sv_core.core.acm.models import Profile, Section, AgentEmpl
 # custom
 from sv_core.core.com.models import I18n
 
@@ -19,12 +19,12 @@ class I18nInline(GenericTabularInline):
 class EmplModelForm(forms.ModelForm):
 
     class Meta:
-        model = Empl
+        model = Profile
         exclude = ['user']
 
 
 class EmployeeInline(admin.StackedInline):
-    model = Empl
+    model = Profile
     can_delete = False
     verbose_name_plural = _('Employee')
     form = EmplModelForm

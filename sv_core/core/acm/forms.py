@@ -13,12 +13,17 @@
 # limitations under the License.
 
 from django import forms
+from django.contrib.auth.models import User
+
+from .models import Profile
 
 
-class EmplForm(forms.Form):
-    name = forms.CharField()
-    message = forms.CharField(widget=forms.Textarea)
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')
 
-    def send_email(self):
-        # send email using the self.cleaned_data dictionary
-        pass
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('skype', 'location')

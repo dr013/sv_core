@@ -7,6 +7,8 @@ from django.contrib.auth.models import User, Permission
 from django.db import models
 from django.utils.translation import ugettext as _
 from django.shortcuts import reverse
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 # app
 from sv_core.core.com.models import BaseLang
 from sv_core.core.ost.models import DEFAULT_INST
@@ -20,8 +22,8 @@ class ViewableManager(models.Manager):
         return default_queryset.filter(user__is_active=True)
 
 
-class Empl(models.Model):
-    """ Custom extend for django class  User
+class Profile(models.Model):
+    """ Custom extend for django class User
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     skype = models.CharField(max_length=32, verbose_name=_('Skype'), null=True, blank=True)
@@ -30,13 +32,13 @@ class Empl(models.Model):
     parent_id = models.ForeignKey('self', null=True, blank=True, limit_choices_to={'user__is_active': True},
                                   on_delete=models.SET_NULL)
     inst = models.ForeignKey('ost.Institution', on_delete=models.SET_DEFAULT, default=DEFAULT_INST)
+    location = models.CharField(_("Location"), max_length=200, null=True, blank=True)
 
     class Meta:
-        verbose_name_plural = _('Employee')
+        verbose_name_plural = _('User profile')
         db_table = 'acm_user'
         permissions = (
             ("staff", "Can edit in backend"),
-            ("simple", "Can view product info"),
         )
 
     @property
@@ -51,7 +53,16 @@ class Empl(models.Model):
         return self.user.username
 
     def get_absolute_url(self):
-        return reverse('empl-detail', kwargs={'pk': self.pk})
+        return reverse('profile-detail', kwargs={'pk': self.pk})
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
 
 
 SECTION_TYPE = [
@@ -86,7 +97,7 @@ class Section(BaseLang):
 
 class AgentEmpl(models.Model):
     agent = models.ForeignKey('ost.Agent', on_delete=models.CASCADE)
-    empl = models.ForeignKey(Empl, limit_choices_to={'user__is_active': True}, on_delete=models.CASCADE)
+    empl = models.ForeignKey(Profile, limit_choices_to={'user__is_active': True}, on_delete=models.CASCADE)
     is_head = models.BooleanField(default=False)
 
     def __str__(self):
@@ -95,25 +106,3 @@ class AgentEmpl(models.Model):
     class Meta:
         unique_together = (('agent', 'empl'),)
 
-
-def create_user(username, email=None, first_name=None, last_name=None, password=None):
-    user = User(username=username, first_name=first_name, last_name=last_name, email=email)
-    user.is_staff = False
-    user.is_superuser = False
-    user.set_password(password)
-    user.save()
-    permission = Permission.objects.get(codename='run_report')
-    user.user_permissions.add(permission)
-    permission = Permission.objects.get(codename='change_empl')
-    user.user_permissions.add(permission)
-    permission = Permission.objects.get(codename='simple')
-    user.user_permissions.add(permission)
-    user.save()
-    empl = Empl(user=user)
-    empl.save()
-
-    # mail == Email Address
-    if not email:
-        email = '%s@%s' % (username, settings.DEFAULT_DOMEN)
-        user.email = email
-        user.save()

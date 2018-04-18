@@ -1,24 +1,21 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load crispy_forms_tags %}
-{% block title %}{% trans "Change password" %}{% endblock %}
+{% block title %}{% trans "User settings" %}{% endblock %}
 {% block page %}
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Change password</h1>
+        <h1 class="h2">Profile</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
+
 
         </div>
     </div>
     <div>
         <form method="post">
             {% csrf_token %}
-            <div class="form-group">
-         {{ form|crispy }}
-            </div>
-            <div class="form-group">
-                <button type="submit">Save changes</button>
-            </div>
-
+            {{ user_form|crispy }}
+            {{ profile_form | crispy }}
+            <button type="submit">Save changes</button>
         </form>
 
     </div>

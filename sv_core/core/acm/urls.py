@@ -18,5 +18,5 @@ from sv_core.core.acm import views
 
 urlpatterns = [
     path('change_password/', views.change_password, name='change_password'),
-    path('update/<int:pk>/', views.EmplUpdate.as_view(), name='empl-update'),
+    path('update/', views.update_profile, name='profile'),
 ]

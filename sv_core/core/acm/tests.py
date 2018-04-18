@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Empl
+from .models import Profile
 
 
 class AccessManagementTestCase(TestCase):
@@ -11,7 +11,7 @@ class AccessManagementTestCase(TestCase):
             'username': 'testuser',
             'password': 'secret'}
         user = User.objects.create_user(**self.credentials)
-        empl = Empl(user=user, lang='LANGRUS')
+        empl = Profile(user=user, lang='LANGRUS')
         empl.save()
 
     def test_login_page(self):

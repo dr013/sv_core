@@ -3,16 +3,17 @@ import logging
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
+from django.db import transaction
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template.context import RequestContext
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic.edit import UpdateView
 
 # apps
-from .models import Empl
+from .forms import UserForm, ProfileForm
 
 # Set logger
 logger = logging.getLogger(__name__)
@@ -87,7 +88,23 @@ def change_password(request):
     })
 
 
-class EmplUpdate(UpdateView):
-    model = Empl
-    fields = '__all__'
-    template_name = 'empl_form.html'
+@login_required
+@transaction.atomic
+def update_profile(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, _('Your profile was successfully updated!'))
+            return redirect('profile')
+        else:
+            messages.error(request, _('Please correct the error below.'))
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+    return render(request, 'profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'sv_core.core.rpt.apps.ReportConfig',
     'sv_core.core.rul.apps.RuleConfig',
     'sv_core.core.sec.apps.SecureConfig',
+    'crispy_forms',
 ]
 
 INSTALLED_APPS += ['sequences.apps.SequencesConfig']
@@ -130,3 +131,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 DEFAULT_DOMEN = 'example.com'
 LOGIN_REDIRECT_URL = 'index'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

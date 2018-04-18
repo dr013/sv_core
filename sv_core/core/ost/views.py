@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_page
 # App
 from ost.models import Instance, Server
-from acm.models import Empl
+from acm.models import Profile
 
 # Logger
 logger = logging.Logger(__name__)
@@ -35,7 +35,7 @@ def server_list(request):
 @login_required
 @cache_page(60 * 60)
 def server_list_json(request):
-    empl = Empl.objects.get(user=request.user)
+    empl = Profile.objects.get(user=request.user)
 
     if 'page' in request.GET:
         current_page = int(request.GET['page'])
