@@ -38,7 +38,7 @@ class UserAdmin(UserAdmin):
     list_display = ['username', 'email', 'first_name', 'last_name', 'inst_name']
 
     def inst_name(self, obj):
-        return obj.empl.inst
+        return obj.profile.inst
 
     inst_name.short_description = 'Group_name'
 

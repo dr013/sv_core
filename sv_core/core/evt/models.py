@@ -131,6 +131,9 @@ class EventRuleSet(models.Model):
     modifier = models.ForeignKey('rul.Modifier', on_delete=models.CASCADE, help_text=_(
         "Modifier containing filter on objects will processed by current rule set."), null=True)
 
+    class Meta:
+        db_table = 'evt_rule_set'
+
 
 def get_subscriber_tab(event_type):
     """Get list of subscribers for event type"""
