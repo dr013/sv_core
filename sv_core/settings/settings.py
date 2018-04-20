@@ -140,3 +140,6 @@ DEFAULT_DOMEN = 'example.com'
 LOGIN_REDIRECT_URL = 'index'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Access management
+LOGIN_URL = '/login/'

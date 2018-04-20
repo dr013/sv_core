@@ -16,16 +16,20 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
 from django.contrib.auth import views as auth_views
-
+from django.urls import path, include
 
 from sv_core.views import index
 
-urlpatterns = [   path('admin_tools/', include('admin_tools.urls')),
-                  path('admin/', admin.site.urls),
-                  path('login/', auth_views.login, {'template_name': 'login.html'}, name="login"),
-                  path('logout/', auth_views.logout, {'next_page': '/'}, name='logout'),
-                  path('acm/', include('acm.urls')),
-                  path('', index, name="index"),
-              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns = [path('admin_tools/', include('admin_tools.urls')),
+               path('admin/', admin.site.urls),
+               path('login/', auth_views.login, {'template_name': 'login.html'}, name="login"),
+               path('logout/', auth_views.logout, {'next_page': '/'}, name='logout'),
+               path('acm/', include('acm.urls')),
+               path('', index, name="index"),
+               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns = [path('__debug__/', include(debug_toolbar.urls)),
+                  ] + urlpatterns
