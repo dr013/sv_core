@@ -11,8 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-try:
-    from .dev import *
-except ImportError:
-    from .settings import *
 
+from django.urls import path
+
+from sv_core.core.acm import views
+
+urlpatterns = [
+    path('change_password/', views.change_password, name='change_password'),
+    path('update/', views.update_profile, name='profile'),
+]

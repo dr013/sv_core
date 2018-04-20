@@ -27,13 +27,15 @@ sys.path.insert(0, PROJECT_ROOT)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '8w!!d9t(3e)pff^qcfa$q#*%=!lpqvrj)s^**@_i%en*pus^vz'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
+    'sv_core.core.acm.apps.AcmConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +50,7 @@ INSTALLED_APPS = [
     'sv_core.core.rpt.apps.ReportConfig',
     'sv_core.core.rul.apps.RuleConfig',
     'sv_core.core.sec.apps.SecureConfig',
-
+    'crispy_forms',
 ]
 
 INSTALLED_APPS += ['sequences.apps.SequencesConfig']
@@ -68,14 +70,19 @@ ROOT_URLCONF = 'sv_core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
-        'APP_DIRS': True,
+        'DIRS': [os.path.join(PROJECT_ROOT, 'templates'), ],
+        # 'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'loaders': [
+                'admin_tools.template_loaders.Loader',
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
             ],
         },
     },
@@ -127,3 +134,12 @@ LANG_CHOICE = (
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+DEFAULT_DOMEN = 'example.com'
+LOGIN_REDIRECT_URL = 'index'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Access management
+LOGIN_URL = '/login/'

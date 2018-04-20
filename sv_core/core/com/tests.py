@@ -1,22 +1,28 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-
-Replace this with more appropriate tests for your application.
-"""
-
 from django.test import TestCase
-from .models import get_hash
+from sequences import get_next_value
+
+from .models import *
 
 
-class ComTestCase(TestCase):
-    def setUp(self):
-        pass
-        # evnt1 = Event.objects.create(event_type="evnttest", is_cached=True)
-        # self.id1 = evnt1.id
+class DictTestCase(TestCase):
+    # def setUp(self):
+    #     Dictionary.objects.create(name="lion", sound="roar")
+    #     Animal.objects.create(name="cat", sound="meow")
 
-    def test_get_hash(self):
-        for rec in range(1000):
-            self.assertGreaterEqual(64, get_hash(rec, 64))
-            self.assertGreater(get_hash(rec, 64), 0)
+    def test_dictionary_create(self):
+        uid = get_next_value("dictionary")
+        dictionary = Dictionary(id=uid, dict_code="test", code="0001", is_numeric=True,
+                                is_editable=True, module_code="com")
+        i18n = I18n(entity=dictionary, lang="")
+        self.assertEqual(dictionary.dict_code, "test")
+        self.assertEqual(dictionary.code, "0001")
+        self.assertTrue(dictionary.is_editable)
+        self.assertTrue(dictionary.is_numeric)
+        self.assertEqual(dictionary.module_code, "com")
+        self.assertEqual(dictionary.id, uid)
 
+        # After save case changed to upper
+        dictionary.save()
+
+        self.assertEqual(dictionary.dict_code, "TEST")
+        self.assertEqual(dictionary.module_code, "COM")

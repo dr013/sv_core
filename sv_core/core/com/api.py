@@ -101,7 +101,7 @@ def get_dict_value():
     sql = """
        select 'DICT', 'DICT - Dictionary'
        union all
-       select code, code || ' - ' || d.text  
+       select code, code || ' - ' || b.text  
          from com_dictionary a
             , com_i18n b
             , django_content_type d

@@ -1,5 +1,26 @@
-build:
-    script:
-        - ls
-    tags:
-        - python35
+variables:
+  DJANGO_SETTINGS_MODULE: "sv_core.settings.test"
+before_script:
+  - virtualenv -p python3 venv
+  - source venv/bin/activate
+  - pip install --upgrade pip
+  - pip install  -q -r requirements/test.txt --no-cache-dir
+stages:
+  - test
+  - build
+unittest:
+  stage: test
+  script:
+    - coverage run --source='.' manage.py test -d -v 2 --parallel 2
+    - coverage report
+  tags:
+    - python35
+test_deploy:
+  stage: build
+  script:
+      - ./manage.py compilemessages
+      - ./manage.py migrate
+  only:
+    - master
+  tags:
+    - python35

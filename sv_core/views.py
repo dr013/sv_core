@@ -11,8 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-try:
-    from .dev import *
-except ImportError:
-    from .settings import *
+import logging
 
+from django.shortcuts import render
+
+logger = logging.getLogger(__name__)
+
+
+def index(request):
+    return render(request, 'index.html', )

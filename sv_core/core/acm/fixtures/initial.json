@@ -1,0 +1,1355 @@
+[
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add section",
+        "content_type": 1,
+        "codename": "add_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change section",
+        "content_type": 1,
+        "codename": "change_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete section",
+        "content_type": 1,
+        "codename": "delete_section"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can add agent empl",
+        "content_type": 2,
+        "codename": "add_agentempl"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can change agent empl",
+        "content_type": 2,
+        "codename": "change_agentempl"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can delete agent empl",
+        "content_type": 2,
+        "codename": "delete_agentempl"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can add profile",
+        "content_type": 3,
+        "codename": "add_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can change profile",
+        "content_type": 3,
+        "codename": "change_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can delete profile",
+        "content_type": 3,
+        "codename": "delete_profile"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can edit in backend",
+        "content_type": 3,
+        "codename": "staff"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 4,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 4,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 4,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 5,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 5,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 5,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 6,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 6,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 6,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 7,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 7,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 7,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 8,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 8,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 8,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 9,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 9,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 9,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add Dictionary",
+        "content_type": 10,
+        "codename": "add_dictionary"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change Dictionary",
+        "content_type": 10,
+        "codename": "change_dictionary"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete Dictionary",
+        "content_type": 10,
+        "codename": "delete_dictionary"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can add Parameter",
+        "content_type": 11,
+        "codename": "add_parameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can change Parameter",
+        "content_type": 11,
+        "codename": "change_parameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can delete Parameter",
+        "content_type": 11,
+        "codename": "delete_parameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can add i18n",
+        "content_type": 12,
+        "codename": "add_i18n"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can change i18n",
+        "content_type": 12,
+        "codename": "change_i18n"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can delete i18n",
+        "content_type": 12,
+        "codename": "delete_i18n"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can add List of values",
+        "content_type": 13,
+        "codename": "add_lov"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can change List of values",
+        "content_type": 13,
+        "codename": "change_lov"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can delete List of values",
+        "content_type": 13,
+        "codename": "delete_lov"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add Label",
+        "content_type": 14,
+        "codename": "add_label"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change Label",
+        "content_type": 14,
+        "codename": "change_label"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete Label",
+        "content_type": 14,
+        "codename": "delete_label"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can add Event",
+        "content_type": 15,
+        "codename": "add_event"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can change Event",
+        "content_type": 15,
+        "codename": "change_event"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can delete Event",
+        "content_type": 15,
+        "codename": "delete_event"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can add Subscriber",
+        "content_type": 16,
+        "codename": "add_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can change Subscriber",
+        "content_type": 16,
+        "codename": "change_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can delete Subscriber",
+        "content_type": 16,
+        "codename": "delete_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can add Subscription",
+        "content_type": 17,
+        "codename": "add_subscription"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can change Subscription",
+        "content_type": 17,
+        "codename": "change_subscription"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can delete Subscription",
+        "content_type": 17,
+        "codename": "delete_subscription"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add event rule set",
+        "content_type": 18,
+        "codename": "add_eventruleset"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change event rule set",
+        "content_type": 18,
+        "codename": "change_eventruleset"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete event rule set",
+        "content_type": 18,
+        "codename": "delete_eventruleset"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can add Event object",
+        "content_type": 19,
+        "codename": "add_eventobject"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+        "name": "Can change Event object",
+        "content_type": 19,
+        "codename": "change_eventobject"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+        "name": "Can delete Event object",
+        "content_type": 19,
+        "codename": "delete_eventobject"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+        "name": "Can add Event type",
+        "content_type": 20,
+        "codename": "add_eventtype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+        "name": "Can change Event type",
+        "content_type": 20,
+        "codename": "change_eventtype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+        "name": "Can delete Event type",
+        "content_type": 20,
+        "codename": "delete_eventtype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+        "name": "Can add Subscriber",
+        "content_type": 21,
+        "codename": "add_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+        "name": "Can change Subscriber",
+        "content_type": 21,
+        "codename": "change_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+        "name": "Can delete Subscriber",
+        "content_type": 21,
+        "codename": "delete_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+        "name": "Can add Channel",
+        "content_type": 22,
+        "codename": "add_channel"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+        "name": "Can change Channel",
+        "content_type": 22,
+        "codename": "change_channel"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+        "name": "Can delete Channel",
+        "content_type": 22,
+        "codename": "delete_channel"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+        "name": "Can add Message",
+        "content_type": 23,
+        "codename": "add_message"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+        "name": "Can change Message",
+        "content_type": 23,
+        "codename": "change_message"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+        "name": "Can delete Message",
+        "content_type": 23,
+        "codename": "delete_message"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+        "name": "Can add Notification template",
+        "content_type": 24,
+        "codename": "add_template"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+        "name": "Can change Notification template",
+        "content_type": 24,
+        "codename": "change_template"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+        "name": "Can delete Notification template",
+        "content_type": 24,
+        "codename": "delete_template"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+        "name": "Can add Scheme",
+        "content_type": 25,
+        "codename": "add_scheme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+        "name": "Can change Scheme",
+        "content_type": 25,
+        "codename": "change_scheme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+        "name": "Can delete Scheme",
+        "content_type": 25,
+        "codename": "delete_scheme"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+        "name": "Can add Notification",
+        "content_type": 26,
+        "codename": "add_notification"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+        "name": "Can change Notification",
+        "content_type": 26,
+        "codename": "change_notification"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+        "name": "Can delete Notification",
+        "content_type": 26,
+        "codename": "delete_notification"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+        "name": "Can add subscribe group",
+        "content_type": 27,
+        "codename": "add_subscribegroup"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+        "name": "Can change subscribe group",
+        "content_type": 27,
+        "codename": "change_subscribegroup"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+        "name": "Can delete subscribe group",
+        "content_type": 27,
+        "codename": "delete_subscribegroup"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+        "name": "Can add institution",
+        "content_type": 28,
+        "codename": "add_institution"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+        "name": "Can change institution",
+        "content_type": 28,
+        "codename": "change_institution"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+        "name": "Can delete institution",
+        "content_type": 28,
+        "codename": "delete_institution"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+        "name": "Can view institution",
+        "content_type": 28,
+        "codename": "view_inst"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+        "name": "Can add server",
+        "content_type": 29,
+        "codename": "add_server"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+        "name": "Can change server",
+        "content_type": 29,
+        "codename": "change_server"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 89,
+    "fields": {
+        "name": "Can delete server",
+        "content_type": 29,
+        "codename": "delete_server"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 90,
+    "fields": {
+        "name": "Can add Parameter value",
+        "content_type": 30,
+        "codename": "add_instanceparametervalue"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 91,
+    "fields": {
+        "name": "Can change Parameter value",
+        "content_type": 30,
+        "codename": "change_instanceparametervalue"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 92,
+    "fields": {
+        "name": "Can delete Parameter value",
+        "content_type": 30,
+        "codename": "delete_instanceparametervalue"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 93,
+    "fields": {
+        "name": "Can add Instance type parameter",
+        "content_type": 31,
+        "codename": "add_instancetypeparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 94,
+    "fields": {
+        "name": "Can change Instance type parameter",
+        "content_type": 31,
+        "codename": "change_instancetypeparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 95,
+    "fields": {
+        "name": "Can delete Instance type parameter",
+        "content_type": 31,
+        "codename": "delete_instancetypeparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 96,
+    "fields": {
+        "name": "Can add Instance type",
+        "content_type": 32,
+        "codename": "add_instancetype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 97,
+    "fields": {
+        "name": "Can change Instance type",
+        "content_type": 32,
+        "codename": "change_instancetype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 98,
+    "fields": {
+        "name": "Can delete Instance type",
+        "content_type": 32,
+        "codename": "delete_instancetype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 99,
+    "fields": {
+        "name": "Can add Internal group",
+        "content_type": 33,
+        "codename": "add_agent"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 100,
+    "fields": {
+        "name": "Can change Internal group",
+        "content_type": 33,
+        "codename": "change_agent"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 101,
+    "fields": {
+        "name": "Can delete Internal group",
+        "content_type": 33,
+        "codename": "delete_agent"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 102,
+    "fields": {
+        "name": "Can add instance",
+        "content_type": 34,
+        "codename": "add_instance"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 103,
+    "fields": {
+        "name": "Can change instance",
+        "content_type": 34,
+        "codename": "change_instance"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 104,
+    "fields": {
+        "name": "Can delete instance",
+        "content_type": 34,
+        "codename": "delete_instance"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 105,
+    "fields": {
+        "name": "Can view instance",
+        "content_type": 34,
+        "codename": "view"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 106,
+    "fields": {
+        "name": "Can add Session",
+        "content_type": 35,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 107,
+    "fields": {
+        "name": "Can change Session",
+        "content_type": 35,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 108,
+    "fields": {
+        "name": "Can delete Session",
+        "content_type": 35,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 109,
+    "fields": {
+        "name": "Can add Template",
+        "content_type": 36,
+        "codename": "add_template"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 110,
+    "fields": {
+        "name": "Can change Template",
+        "content_type": 36,
+        "codename": "change_template"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 111,
+    "fields": {
+        "name": "Can delete Template",
+        "content_type": 36,
+        "codename": "delete_template"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 112,
+    "fields": {
+        "name": "Can add Report",
+        "content_type": 37,
+        "codename": "add_report"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 113,
+    "fields": {
+        "name": "Can change Report",
+        "content_type": 37,
+        "codename": "change_report"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 114,
+    "fields": {
+        "name": "Can delete Report",
+        "content_type": 37,
+        "codename": "delete_report"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 115,
+    "fields": {
+        "name": "Can add Modifier Parameter",
+        "content_type": 38,
+        "codename": "add_modifierparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 116,
+    "fields": {
+        "name": "Can change Modifier Parameter",
+        "content_type": 38,
+        "codename": "change_modifierparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 117,
+    "fields": {
+        "name": "Can delete Modifier Parameter",
+        "content_type": 38,
+        "codename": "delete_modifierparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 118,
+    "fields": {
+        "name": "Can add Rule set",
+        "content_type": 39,
+        "codename": "add_ruleset"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 119,
+    "fields": {
+        "name": "Can change Rule set",
+        "content_type": 39,
+        "codename": "change_ruleset"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 120,
+    "fields": {
+        "name": "Can delete Rule set",
+        "content_type": 39,
+        "codename": "delete_ruleset"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 121,
+    "fields": {
+        "name": "Can add Rule",
+        "content_type": 40,
+        "codename": "add_rule"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 122,
+    "fields": {
+        "name": "Can change Rule",
+        "content_type": 40,
+        "codename": "change_rule"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 123,
+    "fields": {
+        "name": "Can delete Rule",
+        "content_type": 40,
+        "codename": "delete_rule"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 124,
+    "fields": {
+        "name": "Can add Parameter Value",
+        "content_type": 41,
+        "codename": "add_parametervalue"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 125,
+    "fields": {
+        "name": "Can change Parameter Value",
+        "content_type": 41,
+        "codename": "change_parametervalue"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 126,
+    "fields": {
+        "name": "Can delete Parameter Value",
+        "content_type": 41,
+        "codename": "delete_parametervalue"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 127,
+    "fields": {
+        "name": "Can add Modifier scale",
+        "content_type": 42,
+        "codename": "add_scale"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 128,
+    "fields": {
+        "name": "Can change Modifier scale",
+        "content_type": 42,
+        "codename": "change_scale"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 129,
+    "fields": {
+        "name": "Can delete Modifier scale",
+        "content_type": 42,
+        "codename": "delete_scale"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 130,
+    "fields": {
+        "name": "Can add Modifier",
+        "content_type": 43,
+        "codename": "add_modifier"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 131,
+    "fields": {
+        "name": "Can change Modifier",
+        "content_type": 43,
+        "codename": "change_modifier"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 132,
+    "fields": {
+        "name": "Can delete Modifier",
+        "content_type": 43,
+        "codename": "delete_modifier"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 133,
+    "fields": {
+        "name": "Can add Rule procedure",
+        "content_type": 44,
+        "codename": "add_procedure"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 134,
+    "fields": {
+        "name": "Can change Rule procedure",
+        "content_type": 44,
+        "codename": "change_procedure"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 135,
+    "fields": {
+        "name": "Can delete Rule procedure",
+        "content_type": 44,
+        "codename": "delete_procedure"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 136,
+    "fields": {
+        "name": "Can add Naming rule",
+        "content_type": 45,
+        "codename": "add_nameformat"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 137,
+    "fields": {
+        "name": "Can change Naming rule",
+        "content_type": 45,
+        "codename": "change_nameformat"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 138,
+    "fields": {
+        "name": "Can delete Naming rule",
+        "content_type": 45,
+        "codename": "delete_nameformat"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 139,
+    "fields": {
+        "name": "Can add Procedure Parameter",
+        "content_type": 46,
+        "codename": "add_procedureparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 140,
+    "fields": {
+        "name": "Can change Procedure Parameter",
+        "content_type": 46,
+        "codename": "change_procedureparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 141,
+    "fields": {
+        "name": "Can delete Procedure Parameter",
+        "content_type": 46,
+        "codename": "delete_procedureparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 142,
+    "fields": {
+        "name": "Can add Encryption key",
+        "content_type": 47,
+        "codename": "add_keymanage"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 143,
+    "fields": {
+        "name": "Can change Encryption key",
+        "content_type": 47,
+        "codename": "change_keymanage"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 144,
+    "fields": {
+        "name": "Can delete Encryption key",
+        "content_type": 47,
+        "codename": "delete_keymanage"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 145,
+    "fields": {
+        "name": "Can add sequence",
+        "content_type": 48,
+        "codename": "add_sequence"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 146,
+    "fields": {
+        "name": "Can change sequence",
+        "content_type": 48,
+        "codename": "change_sequence"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 147,
+    "fields": {
+        "name": "Can delete sequence",
+        "content_type": 48,
+        "codename": "delete_sequence"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$hnHyLqqcuZiq$UjpcaYaYizIp/MWCJZ5WwfL7CS1bZxRjyr03WlhCjvo=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "krukov",
+        "first_name": "Evgeny",
+        "last_name": "Kryukov",
+        "email": "ekryukov@icloud.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2018-04-18T09:17:07.881Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "acm.profile",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "skype": null,
+        "lang": "LANGRUS",
+        "parent_id": null,
+        "inst": 9999,
+        "location": "Moscow"
+    }
+}
+]

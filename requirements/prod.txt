@@ -1,2 +1,6 @@
-Django==2
-django-sequences
+Django==2.0.4
+django-sequences==2.2
+django-crispy-forms==1.7.2
+psycopg2-binary==2.7.4
+django-admin-tools==0.8.1
+
