@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'sv_core.core.rul.apps.RuleConfig',
     'sv_core.core.sec.apps.SecureConfig',
     'crispy_forms',
+    'django_celery_results',
+    'django_celery_beat',
 ]
 
 INSTALLED_APPS += ['sequences.apps.SequencesConfig']
@@ -143,3 +145,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Access management
 LOGIN_URL = '/login/'
+
+# Celery
+CELERY_RESULT_BACKEND = 'django-db'
