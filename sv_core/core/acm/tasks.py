@@ -12,8 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# This will make sure the app is always imported when
-# Django starts so that shared_task will use this app.
-from sv_core.celery_set import app  as celery_app
+# Create your tasks here
+from __future__ import absolute_import, unicode_literals
+from celery import shared_task
 
-__all__ = ['celery_app']
+
+@shared_task
+def add(x, y):
+    return x + y
+
+
+@shared_task
+def mul(x, y):
+    return x * y
+
+
+@shared_task
+def xsum(numbers):
+    return sum(numbers)
